@@ -9,6 +9,8 @@ const Comments = ({ slug }) => {
 
   useEffect(() => {
     getComments(slug).then((result) => {
+      console.log("HIIIIIIIIIIIIII")
+      console.log(result);
       setComments(result);
     });
   }, []);

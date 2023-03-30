@@ -1,5 +1,5 @@
 import React from 'react';
-
+import parse from "html-react-parser";
 import moment from 'moment';
 
 const PostDetail = ({ post }) => {
@@ -68,11 +68,7 @@ const PostDetail = ({ post }) => {
             </div>
           </div>
           <h1 className="mb-8 text-3xl font-semibold">{post.title}</h1>
-          {post.content.raw.children.map((typeObj, index) => {
-            const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
-
-            return getContentFragment(index, children, typeObj, typeObj.type);
-          })}
+          {parse(post.content.html)}
         </div>
       </div>
 
